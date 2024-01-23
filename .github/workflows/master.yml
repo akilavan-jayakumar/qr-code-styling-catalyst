@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: '18'
       - name: Installing catalyst
-        run : npm i zcatalyst-cli
+        run : npm i -g zcatalyst-cli
       - name: Creating 'Release' Directory
         run: mkdir -p release/functions
       - name: Installing Packages for 'v1' & Creating the Zip
