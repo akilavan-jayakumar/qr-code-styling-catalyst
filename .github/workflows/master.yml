@@ -1,8 +1,8 @@
 name: Create Release
 on:
   push:
-    tags:
-      - 'v*' # P
+    branches:
+      - 'master'
 
 jobs:
   build:
@@ -15,9 +15,7 @@ jobs:
           node-version: '18'
       - name: Installing catalyst
         run : npm i -g zcatalyst-cli
-      - name: Creating 'Release' Directory
-        run: mkdir -p release/functions
-      - name: Installing Packages for 'v1' & Creating the Zip
-        run: cd functions/v1/ && npm install --omit=dev && zip -r ../../release/functions/v1.zip .
+      - name: Installing Packages for 'v1'
+        run: cd functions/v1/ && npm install --omit=dev
       - name: Deploying code to catalyst
         run: catalyst deploy --only functions:v1 -p ${{ secrets.CATALYST_PROJECT_NAME}} --org ${{ secrets.CATALYST_ORG}} --token ${{ secrets.CATALYST_TOKEN}}
