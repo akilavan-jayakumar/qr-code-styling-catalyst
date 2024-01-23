@@ -18,8 +18,8 @@ app.get('/canvas', async (_req, res) => {
 		);
 
 		const options = {
-			width: 100,
-			height: 100,
+			width: 200,
+			height: 200,
 			nodeCanvas: canvas,
 			data: 'https://www.google.com',
 			image: `data:image/png;base64,${base64}`,
@@ -29,6 +29,9 @@ app.get('/canvas', async (_req, res) => {
 			imageOptions: {
 				margin: 5,
 				imageSize: 0.2
+			},
+			qrOptions: {
+				errorCorrectionLevel: 'H'
 			}
 		};
 
