@@ -1,0 +1,5 @@
+.catalystrc
+**/.build
+**/node_modules
+**/package-lock.json
+**/catalyst-debug.log

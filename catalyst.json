@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "targets": [
+      "v1"
+    ],
+    "ignore": [],
+    "source": "functions"
+  }
+}
