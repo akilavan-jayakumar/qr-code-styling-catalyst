@@ -1,4 +1,4 @@
-name: Release Database Connector Service
+name: Create Release
 on:
   push:
     tags:
@@ -20,12 +20,4 @@ jobs:
       - name: Installing Packages for 'v1' & Creating the Zip
         run: cd functions/v1/ && npm install --omit=dev && zip -r ../../release/functions/v1.zip .
       - name: Deploying code to catalyst
-        run: catalyst deploy --only fuctions:v1 -p ${{ secrets.CATALYST_PROJECT_NAME}} --org ${{ secrets.CATALYST_ORG}} --token ${{ secrets.CATALYST_TOKEN}}
-
-      # - uses: actions/checkout@v2
-      - uses: ncipollo/release-action@v1
-        with:
-          artifacts: './release/release.zip'
-          bodyFile: 'README.md'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ env.RELEASE_VERSION }}
+        run: catalyst deploy --only functions:v1 -p ${{ secrets.CATALYST_PROJECT_NAME}} --org ${{ secrets.CATALYST_ORG}} --token ${{ secrets.CATALYST_TOKEN}}
