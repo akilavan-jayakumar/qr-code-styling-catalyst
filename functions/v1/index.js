@@ -18,8 +18,8 @@ app.get('/canvas', async (_req, res) => {
 		);
 
 		const options = {
-			width: 300,
-			height: 300,
+			width: 100,
+			height: 100,
 			nodeCanvas: canvas,
 			data: 'https://www.google.com',
 			image: `data:image/png;base64,${base64}`,
